@@ -1,6 +1,6 @@
 {
   "name": "make-runnable",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Call a module's functions directly from the command line, with arguments.",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,10 @@
   ],
   "author": "Arjun Khoosal",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/super-cache-money/make-runnable"
+  },
   "dependencies": {
     "yargs": "^4.7.1"
   }
