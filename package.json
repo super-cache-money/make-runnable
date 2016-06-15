@@ -1,0 +1,26 @@
+{
+  "name": "make-runnable",
+  "version": "1.0.0",
+  "description": "Call a module's functions directly from the command line, with arguments.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "call",
+    "calling",
+    "run",
+    "module",
+    "function",
+    "CL",
+    "command",
+    "line",
+    "expose",
+    "shell"
+  ],
+  "author": "Arjun Khoosal",
+  "license": "ISC",
+  "dependencies": {
+    "yargs": "^4.7.1"
+  }
+}
