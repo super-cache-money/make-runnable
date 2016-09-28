@@ -5,12 +5,12 @@ What's the quickest way to trial a function you're exporting?
 Doing this in your shell?
 
     $node
-    >require('your_file.js').addOneTo(3)
+    >require('./your_file').addOneTo(3)
     4
 
 No. That's annoying. And you have to repeat it all every time you change `your_file.js`. 
 
-Rather insert the following anywhere in `your_file.js` to expose its exports to the command line:
+Rather insert the following **at the end** of `your_file.js` to expose its exports to the command line:
 
     require('make-runnable');
 
@@ -37,7 +37,6 @@ Let's say you have the following file:
 
 **your_file.js**
 
-    require('make-runnable');
     module.exports = {
         addTogether: function(x,y){
             return x + y
@@ -46,6 +45,7 @@ Let's say you have the following file:
             return object;
         }, simpleValue: 'also works'
     };
+    require('make-runnable');
 
 You can now do the following:
 
