@@ -10,7 +10,7 @@ Doing this in your shell?
 
 No. That's annoying. And you have to repeat it all every time you change `your_file.js`. 
 
-Rather insert the following **at the end** of `your_file.js` to expose its exports to the command line:
+Rather insert the following **__at the end__** of `your_file.js` to expose its exports to the command line:
 
     require('make-runnable');
 
@@ -62,3 +62,30 @@ You can now do the following:
 
 1. `require.main === module` is used to check if the module is being run directly, or imported.
 2. If it's being run directly, then [yargs](https://www.npmjs.com/package/yargs) is used to parse `process.argv` so that the target function may be called with the desired arguments.
+
+## What if you want to:
+
+### Run a function directly exported by a module, not nested inside an exported object
+
+Just leave off the function name, like so:
+
+**say_hello.js**
+
+    module.exports = function(){console.log('hello');};
+
+**$sh**
+
+    node say_hello.js
+    > hello
+
+### View the output of a function that doesn't print anything
+
+The output is automatically printed.
+
+### Pass in multiple objects to the function being called
+
+This is currently not supported, PRs welcome!
+
+
+
+
