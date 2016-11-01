@@ -84,7 +84,7 @@ The output is automatically printed.
 
 ### Pass in multiple objects to the function being called
 
-This is currently not supported, PRs welcome!
+While you can pass a *single* object, or multiple *primitives*, multiple objects are not currently supported. PRs welcome!
 
 
 
