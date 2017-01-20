@@ -5,7 +5,6 @@ if (require.main === module.parent) {
   var targetPropertyFound = false;
 
   function runFuncWithArgs(func, unnamedArgs){
-    console.log('running func', unnamedArgs);
     var namedArgs = Object.assign({},argv);
     delete namedArgs._;
     delete namedArgs.$0;
