@@ -38,7 +38,7 @@ if (require.main === module.parent) {
       // if the target is a function, we need to run it with any provided args
       if (module.parent.exports[targetProperty] instanceof Function) {
 
-        runFuncWithArgs(module.parent.exports[targetProperty], argv._.slice(1));
+        runFuncWithArgs(module.parent.exports[targetProperty].bind(module.parent.exports), argv._.slice(1));
       } else {// if the target isn't a function, we simply print it
         console.log(module.parent.exports[targetProperty]);
       }
