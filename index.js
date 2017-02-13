@@ -1,5 +1,17 @@
 var argv = require('yargs').argv;
 
+function printOutput(output){
+  console.log('--------make-runnable-output--------');
+  console.log(output);
+  console.log('------------------------------------');
+}
+
+function printError(error){
+  console.error('--------make-runnable-error---------');
+  console.error(error);
+  console.error('------------------------------------');
+}
+
 // if the requiring file is being run directly from the command line
 if (require.main === module.parent) {
   var targetPropertyFound = false;
@@ -14,13 +26,13 @@ if (require.main === module.parent) {
       process.exit(1);
     } else if (Object.keys(namedArgs).length > 0) {
       //we have named arguments. Let's pass these as an object to the function
-      console.log(func(namedArgs));
+      printOutput(func(namedArgs));
     } else if (unnamedArgs.length > 0) {
       //we have 1 or more unnamed arguments. let's pass those as individual args to function
-      console.log(func.apply(null, unnamedArgs));
+      printOutput(func.apply(null, unnamedArgs));
     } else {
       //no extra arguments given to pass to function. let's just run it
-      console.log(func());
+      printOutput(func());
     }
   }
 
@@ -49,19 +61,16 @@ if (require.main === module.parent) {
   if (!targetPropertyFound) {
     var validProperties = Object.keys(module.parent.exports);
     if (validProperties.length === 0) {
-      console.error("The module you're trying to make runnable doesn't export anything.");
+      printError("The module you're trying to make runnable doesn't export anything.");
     } else { // let's give an example of how this should be used
       var validFunctionProperties = validProperties.filter(function(prop){
         return module.parent.exports[prop] instanceof Function
       });
 
-      console.log('validProps', validProperties);
-      console.log('validFuncs', validFunctionProperties);
 
       // ideally the examples should use a function so it makes sense
       var egProperty = validFunctionProperties.length > 0 ? validFunctionProperties[0] : validProperties[0];
 
-      console.log('egProperty', egProperty);
       // the example changes based on whether the property name contains a space
       var egPropertyHasSpace = egProperty.indexOf(' ') > 0; //if example property
       var egPropertyAsArg = egPropertyHasSpace ? '"' + egProperty + '"' : egProperty;
@@ -69,8 +78,13 @@ if (require.main === module.parent) {
       var example = 'node ' + argv.$0 + ' ' + egPropertyAsArg + ' xyz';
       example += ' → ';
       example += 'module.exports' + (egPropertyHasSpace ? '[' + egPropertyAsArg + ']': '.' + egProperty) + '("xyz")'
-      console.error('One of the following must be specified as an argument, to run/print the corresponding function/property:', Object.keys(module.parent.exports), '\n');
-      console.error('Example:\n', example);
+
+      var errorString = 'One of the following must be specified as an argument, to run/print the corresponding function/property:';
+      errorString += '\n\n' + Object.keys(module.parent.exports);
+      errorString += '\n\nExample:';
+      errorString += '\n\t' + example;
+
+      printError(errorString);
     }
   }
 } else {
