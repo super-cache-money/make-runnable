@@ -82,10 +82,10 @@ Just leave off the function name, like so:
 
 The output is automatically printed.
 
+### View the resolved value of a `Promise` returned by a function
+
+That happens automatically.
+
 ### Pass in multiple objects to the function being called
 
 While you can pass a *single* object, or multiple *primitives*, multiple objects are not currently supported. PRs welcome!
-
-
-
-
