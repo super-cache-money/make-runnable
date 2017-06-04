@@ -1,9 +1,13 @@
 var argv = require('yargs').argv;
+var Bluebird = require('bluebird');
 
-function printOutput(output){
-  console.log('--------make-runnable-output--------');
-  console.log(output);
-  console.log('------------------------------------');
+function printOutput(returnValue){
+  Bluebird.resolve(returnValue)
+  .then(function (output){
+    console.log('--------make-runnable-output--------');
+    console.log(output);
+    console.log('------------------------------------');
+  });
 }
 
 function printError(error){

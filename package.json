@@ -26,6 +26,7 @@
     "url": "https://github.com/super-cache-money/make-runnable"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
     "yargs": "^4.7.1"
   },
   "browser": {
