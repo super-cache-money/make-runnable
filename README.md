@@ -90,9 +90,9 @@ That happens automatically.
 
 You can pass in a custom option to `make-runnable` remove to that, like this:
 ```
-require('make-runnable/custom'){
+require('make-runnable/custom')({
     printOutputFrame: false
-}
+})
 ```
 
 ### Pass in multiple objects to the function being called
