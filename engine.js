@@ -1,5 +1,7 @@
 var argv = require('yargs').argv;
 var Bluebird = require('bluebird');
+var path = require('path');
+
 // since old versions of node can't do Object.assign :(
 var mergeObjects = require('./utils/mergeObjects');
 
@@ -112,6 +114,9 @@ module.exports = function(inputOptions) {
       }
     }
   } else {
-    delete require.cache[__filename]; // needed with nested make-runnables
+    // needed with nested make-runnables
+    delete require.cache[path.join(__dirname, 'engine.js')]
+    delete require.cache[path.join(__dirname, 'index.js')]
+    delete require.cache[path.join(__dirname, 'custom.js')]
   }
 }
