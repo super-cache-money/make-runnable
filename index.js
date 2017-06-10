@@ -1,1 +1,1 @@
-require('./engine');
+require('./engine')({});

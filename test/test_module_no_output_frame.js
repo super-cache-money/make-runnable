@@ -13,4 +13,6 @@ module.exports = {
 	}
 };
 
-require('../index');
+require('../custom')({
+	printOutputFrame: false
+});

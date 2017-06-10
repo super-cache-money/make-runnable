@@ -28,7 +28,7 @@ Call your function with several args:
     
 Or call it with a single object:
 
-    node [your_file] [function_name] key1=value1 key2=value2 
+    node [your_file] [function_name] --key1 value1 --key2 value2 
     
     
 ## Full Example
@@ -85,6 +85,15 @@ The output is automatically printed.
 ### View the resolved value of a `Promise` returned by a function
 
 That happens automatically.
+
+### Remove the `--------make-runnable-output--------` frame from the printed output?
+
+You can pass in a custom option to `make-runnable` remove that, like this:
+```
+require('make-runnable/custom'){
+    printOutputFrame: false
+}
+```
 
 ### Pass in multiple objects to the function being called
 
