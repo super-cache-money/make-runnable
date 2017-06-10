@@ -86,9 +86,9 @@ The output is automatically printed.
 
 That happens automatically.
 
-### Remove the `--------make-runnable-output--------` frame from the printed output
+### Remove the `--------make-runnable-output--------` frame from printed output
 
-You can pass in a custom option to `make-runnable` remove to that, like this:
+You can pass in a custom option to `make-runnable` to remove that, like this:
 ```
 require('make-runnable/custom')({
     printOutputFrame: false
