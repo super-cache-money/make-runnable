@@ -10,7 +10,9 @@ var requiringModule = module.parent.parent;
 module.exports = function(inputOptions) {
 
   var defaultOptions = {
-    printOutputFrame: true
+    printOutputFrame: true,
+    printOutput: true,
+    printErrorOutput: true
   };
 
   var options = mergeObjects(defaultOptions, inputOptions || {});
@@ -18,17 +20,20 @@ module.exports = function(inputOptions) {
   function printOutput(returnValue) {
     Bluebird.resolve(returnValue)
     .then(function (output) {
-      if (options.printOutputFrame) {
-        console.log('--------make-runnable-output--------');
-      }
-      console.log(output);
-      if (options.printOutputFrame) {
-        console.log('------------------------------------');
+      if (options.printOutput) {
+        if (options.printOutputFrame) {
+          console.log('--------make-runnable-output--------');
+        }
+        console.log(output);
+        if (options.printOutputFrame) {
+          console.log('------------------------------------');
+        }
       }
     }).catch(printError);
   }
 
   function printError(error) {
+    if (printErrorOutput) {
       if (options.printOutputFrame) {
         console.log('--------make-runnable-error--------');
       }
@@ -36,6 +41,7 @@ module.exports = function(inputOptions) {
       if (options.printOutputFrame) {
         console.log('------------------------------------');
       }
+    }
   }
 
   // if the requiring file is being run directly from the command line
