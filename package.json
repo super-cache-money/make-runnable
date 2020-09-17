@@ -35,5 +35,5 @@
   "devDependencies": {
     "mocha": "^3.4.2"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "publishConfig": { "registry": "https://npm.pkg.github.com/super-cache-money" }
 }
