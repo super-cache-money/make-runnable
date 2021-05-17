@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
-    "yargs": "^16.0.3"
+    "yargs": "^16.2.0"
   },
   "browser": {
     "./index.js": false
