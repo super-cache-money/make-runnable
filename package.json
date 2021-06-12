@@ -1,6 +1,6 @@
 {
   "name": "make-runnable",
-  "version": "1.3.9",
+  "version": "1.3.10",
   "description": "Call a module's exported functions directly from the command line, with arguments.",
   "main": "index.js",
   "scripts": {
