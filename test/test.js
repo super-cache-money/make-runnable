@@ -63,12 +63,23 @@ kept!!!
     });
 
     it("should be able to have its output printed without a frame", function() {
-    			var cmd = "node ./test/testModules/noOutputFrame.js lookMa";
+    	var cmd = "node ./test/testModules/noOutputFrame.js lookMa";
 		var cmdOutput = exec(cmd, {encoding: 'utf8'});
 		assert.equal(cmdOutput, 
 `no frame!
 `
 		);
     });
+
+    it("should print errors", function() {
+		var cmd = "node ./test/testModules/error.js test_func";
+		var cmdOutput = exec(cmd, {encoding: 'utf8'});
+		assert.equal(cmdOutput,
+`--------make-runnable-error--------
+Something went wrong
+------------------------------------
+`
+		);
+	});	
 });
 

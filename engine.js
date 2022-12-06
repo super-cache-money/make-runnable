@@ -33,7 +33,7 @@ module.exports = function(inputOptions) {
   }
 
   function printError(error) {
-    if (printErrorOutput) {
+    if (options.printErrorOutput) {
       if (options.printOutputFrame) {
         console.log('--------make-runnable-error--------');
       }
