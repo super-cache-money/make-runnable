@@ -33,6 +33,6 @@
     "./index.js": false
   },
   "devDependencies": {
-    "mocha": "^8.1.3"
+    "mocha": "^10.2.0"
   }
 }
